@@ -8,33 +8,24 @@
     "contact" : null,
     "license" : null
   },
-  "host" : "gorest.co.in",
-  "basePath" : "/public/v2",
+  "host" : "loginuat.dc2.pageuppeople.com",
+  "basePath" : "/connect",
   "schemes" : [ "https" ],
   "paths" : {
-    "users" : {
+    "/token" : {
       "get" : {
-        "tags" : [ "get_users" ],
+        "tags" : [ "get-access" ],
         "summary" : null,
         "description" : null,
-        "operationId" : "get_users",
+        "operationId" : "get-access",
         "produces" : [ "application/json" ],
         "consumes" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "Authorization",
-          "in" : "header",
-          "description" : null,
-          "required" : false,
-          "type" : "string"
-        } ],
+        "parameters" : [ ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "type" : "array",
-              "items" : {
-                "$ref" : "#/definitions/get_users"
-              }
+              "$ref" : "#/definitions/get-access"
             }
           }
         }
@@ -42,22 +33,19 @@
     }
   },
   "definitions" : {
-    "get_users" : {
+    "get-access" : {
       "properties" : {
-        "id" : {
+        "access_token" : {
+          "type" : "string"
+        },
+        "expires_in" : {
           "type" : "number",
           "format" : "int32"
         },
-        "name" : {
+        "token_type" : {
           "type" : "string"
         },
-        "email" : {
-          "type" : "string"
-        },
-        "gender" : {
-          "type" : "string"
-        },
-        "status" : {
+        "scope" : {
           "type" : "string"
         }
       }
